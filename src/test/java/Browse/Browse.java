@@ -3,6 +3,9 @@ package Browse;
 import BaseChrome.BaseChrome;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
+import org.openqa.selenium.JavascriptException;
+import org.openqa.selenium.JavascriptExecutor;
+import org.testng.Assert;
 
 import java.net.MalformedURLException;
 import java.util.concurrent.TimeUnit;
@@ -21,6 +24,10 @@ public class Browse extends BaseChrome {
         driver.findElementByXPath("//a[@href='#menu']").click();
         driver.findElementByCssSelector("a[title='Cricbuzz Home']").click();
         System.out.println(driver.getCurrentUrl());
+
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+        jse.executeScript("window.scrollBy(0,480)","");
+        Assert.assertTrue(driver.findElementByXPath("//h4[text()='Top Stories']").getAttribute("class").contains("header"));
 
     }
 }
