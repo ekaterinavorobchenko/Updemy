@@ -12,7 +12,12 @@ public class Browse extends BaseChrome {
     public static void main(String[] arg) throws MalformedURLException {
         AndroidDriver driver = capabilities();
         driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+        driver.get("https://www.facebook.com");
+        driver.findElementByXPath("//*[@id=\"m_login_email\"]").sendKeys("qwerty");
+        driver.findElementByName("pass").sendKeys("12345");
+        driver.findElementByXPath("//*[@id=\"u_0_5_ej\"]/button").click();
 
-        driver.get("https://www.google.com");
+
+
     }
 }
