@@ -1,13 +1,22 @@
 package Ecommerce_tc_3;
 
 import base.Base;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.touch.LongPressOptions;
+import io.appium.java_client.touch.offset.ElementOption;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.openqa.selenium.WebElement;
 
 import java.net.MalformedURLException;
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
+
+import static io.appium.java_client.touch.TapOptions.tapOptions;
+import static io.appium.java_client.touch.offset.ElementOption.element;
 
 public class Ecommerce_tc_3 extends Base
 {
@@ -42,14 +51,22 @@ public class Ecommerce_tc_3 extends Base
             sum = (int) (sum+amount);
 
         }
+
         System.out.println(sum+"sum of products");
 
         String total = driver.findElement(By.id("com.androidsample.generalstore:id/totalAmountLbl")).getText();
         total = total.substring(1);
         double totalValue = Double.parseDouble(total);
         System.out.println(totalValue+"Total value");
-
         Assert.assertEquals(sum,totalValue);
+//Gesture
+        TouchAction t = new TouchAction(driver);
+        WebElement checkbox = driver.findElementByClassName("android.widget.CheckBox");
+        t.tap(tapOptions().withElement(element(checkbox))).perform();
+
+        WebElement pn = driver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.TextView");
+        t.longPress(LongPressOptions.longPressOptions().withElement(ElementOption.element(pn)).withDuration(Duration.ofSeconds(2))).release().perform();
+        driver.findElementById("android:id/button1").click();
     }
     public static double getAmount(String value)
     {
