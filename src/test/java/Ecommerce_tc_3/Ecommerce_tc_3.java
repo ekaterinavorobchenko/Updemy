@@ -30,9 +30,28 @@ public class Ecommerce_tc_3 extends Base {
         element_1.click();
         AndroidElement element_2 = (AndroidElement) driver.findElements(By.id("com.androidsample.generalstore:id/productAddCart")).get(1);
         element_2.click();
-
         driver.findElement(By.id("com.androidsample.generalstore:id/appbar_btn_cart")).click();
         Thread.sleep(4000);
+
+        AndroidElement price_1 = (AndroidElement) driver.findElements(By.id("com.androidsample.generalstore:id/productPrice")).get(0);
+        String amount1 = price_1.getText();
+        amount1 = amount1.substring(1);
+        double amount1value = Double.parseDouble(amount1);
+
+        AndroidElement price_2 = (AndroidElement) driver.findElements(By.id("com.androidsample.generalstore:id/productPrice")).get(1);
+        String amount2 = price_2.getText();
+        amount2 = amount2.substring(1);
+        double amount2value = Double.parseDouble(amount2);
+
+        double sumOfProducts = amount1value+amount2value;
+        System.out.println(sumOfProducts+"sum of products");
+
+        String total = driver.findElement(By.id("com.androidsample.generalstore:id/totalAmountLbl")).getText();
+        total = total.substring(1);
+        double totalValue = Double.parseDouble(total);
+        System.out.println(totalValue+"Total value");
+
+        Assert.assertEquals(sumOfProducts,totalValue);
     }
 }
 
