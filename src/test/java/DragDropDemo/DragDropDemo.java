@@ -23,6 +23,5 @@ public class DragDropDemo extends Base {
         //t.longPress(LongPressOptions.longPressOptions().withElement(ElementOption.element(source))).
                 //moveTo(ElementOption.element(destination)).release().perform();
         t.longPress(ElementOption.element(source)).moveTo(ElementOption.element(destination)).release().perform();
-
     }
 }
