@@ -16,7 +16,7 @@ public class Base {
         cap.setCapability(MobileCapabilityType.PLATFORM_NAME,"Android");
         cap.setCapability(MobileCapabilityType.DEVICE_NAME,"ce0516053d11143b02");
         cap.setCapability(MobileCapabilityType.UDID,"ce0516053d11143b02");
-        cap.setCapability(MobileCapabilityType.APP,"/Users/ekaterinavolobchenko/Downloads/General-Store.apk");
+        cap.setCapability(MobileCapabilityType.APP,"/Users/ekaterinavolobchenko/Downloads/ApiDemos-debug.apk");
         cap.setCapability(MobileCapabilityType.AUTOMATION_NAME,"UiAutomator2");
         cap.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT,14);
 
