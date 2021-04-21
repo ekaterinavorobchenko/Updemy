@@ -1,18 +1,18 @@
 package base;
+
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
-
 
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class Base {
+public class BaseAppium {
 
-    public static AndroidDriver<MobileElement> capabilities() throws MalformedURLException {
+    public static AppiumDriver<MobileElement> capabilities() throws MalformedURLException {
 
-        AndroidDriver<MobileElement> driver;
+        AppiumDriver<MobileElement> driver;
 
         DesiredCapabilities cap = new DesiredCapabilities();
 
@@ -23,7 +23,7 @@ public class Base {
         cap.setCapability(MobileCapabilityType.AUTOMATION_NAME,"UiAutomator2");
         cap.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT,14);
 
-        driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), cap);
+        driver = new AppiumDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), cap);
         return driver;
     }
 }

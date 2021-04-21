@@ -1,19 +1,34 @@
 package PageObjects;
 
-import basic.Basics;
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.pagefactory.AndroidFindBy;
-import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.FindBy;
 
-public class HomePage extends Basics {
+import java.util.List;
 
+
+public class HomePage extends PageObject
+{
     public HomePage(AppiumDriver driver)
     {
-        PageFactory.initElements(new AppiumFieldDecorator(driver),this);
+        super(driver);
     }
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Preference']")
+
+    @FindBy(xpath = "//android.widget.TextView[@text='Preference']")
     public WebElement Preferences;
-    //findElementByXpath("//android.widget.TextView[@text='Preference']")
+
+    @FindBy(xpath = "//android.widget.TextView[@text='3. Preference dependencies']")
+    public WebElement Dependencies;
+
+    @FindBy(id = "android:id/checkbox")
+    public WebElement Checkbox;
+
+    @FindBy(xpath = "(//android.widget.RelativeLayout)[2]")
+    public WebElement RelativeLayout;
+
+    @FindBy(className = "android.widget.EditText")
+    public WebElement EditText;
+
+    @FindBy(className = "android.widget.Button")
+    public List<WebElement> buttons;
 }

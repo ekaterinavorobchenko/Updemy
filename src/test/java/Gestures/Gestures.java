@@ -1,6 +1,7 @@
 package Gestures;
 
 import base.Base;
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.touch.LongPressOptions;
@@ -11,10 +12,9 @@ import java.net.MalformedURLException;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
-import static io.appium.java_client.touch.LongPressOptions.longPressOptions;
 import static io.appium.java_client.touch.TapOptions.tapOptions;
 import static io.appium.java_client.touch.offset.ElementOption.element;
-import static java.time.Duration.ofSeconds;
+
 
 public class Gestures extends Base {
     public static void main(String[] arg) throws MalformedURLException{
